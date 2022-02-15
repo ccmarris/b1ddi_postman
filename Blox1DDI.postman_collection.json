@@ -1,0 +1,1232 @@
+{
+	"info": {
+		"_postman_id": "01a7f7cd-c942-47f9-b262-4470e1fbbcf6",
+		"name": "Blox1DDI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "B1DDI",
+			"item": [
+				{
+					"name": "On_prem_hosts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/host_app/v1/on_prem_hosts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"host_app",
+								"v1",
+								"on_prem_hosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "On_prem_hosts filtered by tag",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/host_app/v1/on_prem_hosts?_tfilter=Owner==\"marrison\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"host_app",
+								"v1",
+								"on_prem_hosts"
+							],
+							"query": [
+								{
+									"key": "_tfilter",
+									"value": "Owner==\"marrison\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "On_prem_hosts filtered by tag Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/host_app/v1/on_prem_hosts/97290?_fields=display_name,tags,applications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"host_app",
+								"v1",
+								"on_prem_hosts",
+								"97290"
+							],
+							"query": [
+								{
+									"key": "_fields",
+									"value": "display_name,tags,applications"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Status (undocumented)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Join Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tags\":{\"Owner\":\"marrison\"},\"name\":\"marrison-test2\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/atlas-host-activation/v1/jointoken",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"atlas-host-activation",
+								"v1",
+								"jointoken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DNS Data",
+			"item": [
+				{
+					"name": "List Views",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/view",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"view"
+							],
+							"query": [
+								{
+									"key": "_fields",
+									"value": "name,id,comment",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Views Quick View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/view?_fields=name,comment,id,ip_spaces,tags",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"view"
+							],
+							"query": [
+								{
+									"key": "_fields",
+									"value": "name,comment,id,ip_spaces,tags"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Zones for a specified view by id (undocumented)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/auth_zone?_filter=view==\"dns/view/9f01b444-6457-4b2d-975c-36cf77eb796c\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"auth_zone"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "view==\"dns/view/9f01b444-6457-4b2d-975c-36cf77eb796c\""
+								},
+								{
+									"key": "_fields",
+									"value": "fqdn,id",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Zones for a specified view by Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/auth_zone?_tfilter=Owner==\"marrison\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"auth_zone"
+							],
+							"query": [
+								{
+									"key": "_fields",
+									"value": "fqdn,id",
+									"disabled": true
+								},
+								{
+									"key": "_tfilter",
+									"value": "Owner==\"marrison\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Zones for a specified view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/auth_zone?_fields=fqdn,id&_tfilter=Owner==\"marrison\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"auth_zone"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "view==\"dns/view/9f01b444-6457-4b2d-975c-36cf77eb796c\"",
+									"disabled": true
+								},
+								{
+									"key": "_fields",
+									"value": "fqdn,id"
+								},
+								{
+									"key": "_tfilter",
+									"value": "Owner==\"marrison\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all zones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/auth_zone?_fields=fqdn,id&_tfilter=Owner==\"marrison\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"auth_zone"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "view==\"dns/view/9f01b444-6457-4b2d-975c-36cf77eb796c\"",
+									"disabled": true
+								},
+								{
+									"key": "_fields",
+									"value": "fqdn,id"
+								},
+								{
+									"key": "_tfilter",
+									"value": "Owner==\"marrison\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all zones (brief)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/auth_zone?_fields=fqdn,id,tags",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"auth_zone"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "view==\"dns/view/9f01b444-6457-4b2d-975c-36cf77eb796c\"",
+									"disabled": true
+								},
+								{
+									"key": "_tfilter",
+									"value": "Owner==\"marrison\"",
+									"disabled": true
+								},
+								{
+									"key": "_fields",
+									"value": "fqdn,id,tags"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Records for a Zone (undocumented)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/zone_child?_filter=parent==\"dns/auth_zone/3147d56e-62bf-499f-992a-f334aadd513a\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"zone_child"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "parent==\"dns/auth_zone/3147d56e-62bf-499f-992a-f334aadd513a\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Name Server Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/record?_filter=type==\"A\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"record"
+							],
+							"query": [
+								{
+									"key": "_filter",
+									"value": "type==\"A\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "temp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name_in_zone\": \"blahblah3\",\n  \"options\": {\"create_ptr\": true, \"check_rmz\": true},\n  \"rdata\": { \"address\": \"192.168.10.7\" },\n  \"ttl\": 0,\n  \"type\": \"A\",\n  \"zone\": \"dns/auth_zone/3147d56e-62bf-499f-992a-f334aadd513a\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dns/record",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dns",
+								"record"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DHCP Data",
+			"item": [
+				{
+					"name": "Leases",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dhcp/lease",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dhcp",
+								"lease"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leases - With example fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dhcp/lease?_fields=host%2Cha_group%2Cspace%2Caddress%2Chardware%2Chostname%2Cclient_id%2Cstarts%2Cends%2Clast_updated",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dhcp",
+								"lease"
+							],
+							"query": [
+								{
+									"key": "_fields",
+									"value": "host%2Cha_group%2Cspace%2Caddress%2Chardware%2Chostname%2Cclient_id%2Cstarts%2Cends%2Clast_updated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DHCP Ranges",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/range?_tfilter=\"Owner\"=\"marrison\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"range"
+							],
+							"query": [
+								{
+									"key": "_tfilter",
+									"value": "\"Owner\"=\"marrison\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create DHCP Range",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"start\": \"10.1.0.10\",\n  \"end\": \"10.1.0.100\",\n  \"space\": {{ip_space_id}},\n  \"tags\": { \"Owner\": {{Owner}}, \"Location\": {{Location}} }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/range",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"range"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create fixed address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Test3\",\n    \"ip_space\":\"{{ip_space_id}}\",\n    \"address\":\"ipam/subnet/65454989-b014-11ea-b956-ca543bd8c483/nextavailableip\",\n    \"match_type\":\"client_text\",\n    \"match_value\":\"Test3\",\n    \"inheritance_sources\": {\n        \"dhcp_options\": {\"action\":\"inherit\"}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dhcp/fixed_address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dhcp",
+								"fixed_address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create fixed address (Next IP)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Nico\",\n    \"ip_space\":\"{{ip_space_id}}\",\n    \"address\":\"ipam/subnet/65454989-b014-11ea-b956-ca543bd8c483/nextavailableip\",\n    \"match_type\":\"client_text\",\n    \"match_value\":\"NICO\",\n    \"inheritance_sources\": {\n        \"dhcp_options\": {\"action\":\"inherit\"}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/dhcp/fixed_address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"dhcp",
+								"fixed_address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IPAM Data",
+			"item": [
+				{
+					"name": "List IP Spaces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/ip_space",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"ip_space"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific IP Space by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/ip_space/fd388619-b013-11ea-b956-ca543bd8c483",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"ip_space",
+								"fd388619-b013-11ea-b956-ca543bd8c483"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Address Blocks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/address_block",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"address_block"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List subnets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/subnet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"subnet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List subnets for a specific ip_space",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/subnet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"subnet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List addresses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/ipam/address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ipam",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List hosts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/host",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"host"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create IP Space",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"IPspace id Received\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.to.be.json);",
+									"});",
+									"",
+									"var jsonObject = pm.response.json()",
+									"console.log(\"JSON response:\", jsonObject)",
+									"",
+									"let IPspace = jsonObject.result.id;",
+									"console.log(\"IPspace:\",  IPspace)",
+									"pm.environment.set(\"IPspace\", IPspace);",
+									"",
+									"pm.test(\"IPspace id obtained\", function() {",
+									"   pm.expect(IPspace)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name}}\",\n    \"comment\" : \"{{comment}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/ip_space",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"ip_space"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subnet into IP_space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"address\": \"{{address}}\",\n            \"cidr\": {{cidr}},\n            \"name\": \"{{name}}\",\n            \"space\": \"{{ip_space_id}}\",\n            \"comment\":\"{{comment}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/subnet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"subnet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create address into IP_space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"{{address}}\",\n    \"comment\": \"{{comment}}\",\n    \"names\": [],\n    \"space\": \"{{IPspace}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create host into IP_Space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "      {\n            \"addresses\": [\n                {\n                    \"address\": \"{{address}}\",\n                    \"space\": \"{{IPspace}}\"\n                }\n            ],\n            \"comment\": \"{{comment}}\",\n            \"name\": \"{{hostname}}\"\n        }"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/host",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"host"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NextAvailable IP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/ddi/v1/ipam/subnet/65454989-b014-11ea-b956-ca543bd8c483",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"ddi",
+								"v1",
+								"ipam",
+								"subnet",
+								"65454989-b014-11ea-b956-ca543bd8c483"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token {{api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
