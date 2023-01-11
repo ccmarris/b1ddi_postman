@@ -2,7 +2,7 @@
 ## Infoblox BloxOne Threat Defense Postman Examples
 
 
-These collections provide examples of working with the BloxOne Threat Defense APIs.
+These collections provide examples of working with the BloxOne DDI APIs.
 
 The collections require the two environment variables to be configured::
 
